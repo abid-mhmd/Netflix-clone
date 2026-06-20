@@ -1,0 +1,278 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #000;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  padding: 20px 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+}
+
+.logo {
+  color: #e50914;
+  font-size: 3rem;
+  font-weight: bold;
+  letter-spacing: -1px;
+}
+
+.signin-btn {
+  background: #e50914;
+  color: white;
+  border: none;
+  padding: 6px 16px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.hero {
+  height: 100vh;
+  background: url("../assets/images/Netflix Indian Movies and Web Series.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+}
+
+.hero-content {
+  text-align: center;
+  color: white;
+  position: relative;
+  z-index: 2;
+  max-width: 950px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  font-weight: 900;
+  line-height: 1.4;
+  margin-bottom: 20px;
+}
+
+.hero-content h3 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-bottom: 24px;
+}
+
+.hero-content p {
+  font-size: 1.25rem;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
+.email-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.email-box input {
+  width: 350px;
+  height: 56px;
+  padding: 0 16px;
+  background: rgba(22, 22, 22, 0.7);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  font-size: 1rem;
+  outline: none;
+}
+
+.email-box button {
+  height: 56px;
+  padding: 0 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: #e50914;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.trending,
+.reasons {
+  padding: 40px 80px;
+  background-color: #000;
+}
+
+.trending h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.movie-row {
+  display: flex;
+  gap: 40px;
+  overflow-x: auto;
+  padding: 0 0 25px 25px;
+}
+
+.movie-row::-webkit-scrollbar {
+  display: none;
+}
+
+.movie-card {
+  position: relative;
+  display: block;
+  min-width: 180px;
+}
+
+.movie-card img {
+  width: 185px;
+  height: 255px;
+  object-fit: cover;
+  border-radius: 8px;
+  position: relative;
+  z-index: 1;
+}
+
+.movie-card span {
+  position: absolute;
+  left: -24px;
+  bottom: 25px;
+  font-size: 6rem;
+  font-weight: 900;
+  font-family:
+    Arial Black,
+    sans-serif;
+  line-height: 0.8;
+  z-index: 2;
+  color: #000;
+  -webkit-text-stroke: 4px #c7bdbd;
+  user-select: none;
+}
+
+.reasons-section {
+  padding: 60px 80px;
+  background: #000;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.reasons-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.reason-card {
+  position: relative;
+  min-height: 300px;
+  padding: 24px;
+  border-radius: 18px;
+  background: linear-gradient(145deg, #192247 0%, #210e32 55%, #2b0f25 100%);
+  overflow: hidden;
+}
+
+.reason-content {
+  max-width: 90%;
+}
+
+.reason-content h3 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 16px;
+  color: #fff;
+}
+
+.reason-content p {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.reason-icon {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.reason-icon svg {
+  font-size: 3.5rem;
+  color: rgb(255, 105, 180);
+}
+
+@media (max-width: 992px) {
+  .reasons-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .reasons-section {
+    padding: 40px 20px;
+  }
+
+  .reasons-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .reason-card {
+    min-height: 250px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 20px;
+  }
+
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .email-box {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .email-box input,
+  .email-box button {
+    width: 100%;
+    max-width: 400px;
+  }
+}
