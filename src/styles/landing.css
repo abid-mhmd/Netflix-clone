@@ -10,22 +10,45 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.trending,
+.reasons,
+.reasons-section,
+.faq-section {
+  padding: 30px 90px;
+  background-color: #000;
+}
+
+.trending h2,
+.section-title,
+.faq-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 20px;
+  font-family: Arial, sans-serif;
+}
+
 .navbar {
   position: absolute;
   top: 0;
-  width: 100%;
+  left: 0;
+  right: 0;
   padding: 20px 80px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   z-index: 10;
 }
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: auto;
+}
 
 .logo {
-  color: #e50914;
-  font-size: 3rem;
-  font-weight: bold;
-  letter-spacing: -1px;
+  width: 150px;
+  height: auto;
 }
 
 .signin-btn {
@@ -39,13 +62,31 @@ body {
   cursor: pointer;
 }
 
+.language-btn {
+  background: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 6px 16px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-family: inherit;
+  transition: border-color 0.2s ease;
+}
+
+.language-btn:hover {
+  border-color: rgba(255, 255, 255, 0.7);
+}
+
 .hero {
   height: 100vh;
   background: url("../assets/images/Netflix Indian Movies and Web Series.jpg");
   background-size: cover;
   background-position: center;
   position: relative;
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -94,20 +135,23 @@ body {
   margin-top: 20px;
 }
 
+.email-box input,
+.email-box button {
+  height: 56px;
+  border-radius: 4px;
+}
+
 .email-box input {
   width: 350px;
-  height: 56px;
   padding: 0 16px;
   background: rgba(22, 22, 22, 0.7);
   color: white;
   border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 4px;
   font-size: 1rem;
   outline: none;
 }
 
 .email-box button {
-  height: 56px;
   padding: 0 28px;
   display: flex;
   align-items: center;
@@ -116,31 +160,16 @@ body {
   background: #e50914;
   color: white;
   border: none;
-  border-radius: 4px;
   font-size: 1.5rem;
   font-weight: 600;
   cursor: pointer;
-}
-
-.trending,
-.reasons {
-  padding: 40px 80px;
-  background-color: #000;
-}
-
-.trending h2 {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #fff;
-  margin-bottom: 20px;
-  font-family: Arial, sans-serif;
 }
 
 .movie-row {
   display: flex;
   gap: 40px;
   overflow-x: auto;
-  padding: 0 0 25px 25px;
+  padding: 0 20px 25px 25px;
 }
 
 .movie-row::-webkit-scrollbar {
@@ -151,6 +180,14 @@ body {
   position: relative;
   display: block;
   min-width: 180px;
+  transition: transform 0.3s ease;
+  transform-origin: center;
+  cursor: pointer;
+}
+
+.movie-card:hover {
+  transform: scale(1.1);
+  z-index: 10;
 }
 
 .movie-card img {
@@ -178,27 +215,16 @@ body {
   user-select: none;
 }
 
-.reasons-section {
-  padding: 60px 80px;
-  background: #000;
-}
-
-.section-title {
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 20px;
-}
-
 .reasons-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
+  gap: 20px;
 }
 
 .reason-card {
   position: relative;
-  min-height: 300px;
-  padding: 24px;
+  min-height: 320px;
+  padding: 20px;
   border-radius: 18px;
   background: linear-gradient(145deg, #192247 0%, #210e32 55%, #2b0f25 100%);
   overflow: hidden;
@@ -236,23 +262,109 @@ body {
   color: rgb(255, 105, 180);
 }
 
+.faq-item {
+  margin-bottom: 8px;
+}
+
+.faq-question {
+  width: 100%;
+  color: white;
+  background: #2d2d2d;
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  padding: 24px;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.faq-question svg {
+  font-size: 2rem;
+}
+
+.faq-answer {
+  overflow: hidden;
+  max-height: 0;
+  background: #2d2d2d;
+  white-space: pre-line;
+  transition: max-height 0.25s cubic-bezier(0.5, 0, 0.1, 1);
+  margin-top: 2px;
+}
+
+.faq-answer.active {
+  max-height: 600px;
+}
+
+.faq-answer p {
+  padding: 24px;
+  font-size: 1.5rem;
+  color: white;
+  margin: 0;
+}
+
+.footer {
+  max-width: 1150px;
+  margin: 0 auto;
+  padding: 72px 48px;
+  font-size: 14px;
+}
+
+.footer,
+.footer-contact,
+.footer-country,
+.footer-note {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.footer-contact,
+.footer-links,
+.footer-language {
+  margin-bottom: 32px;
+}
+
+.footer-contact a,
+.footer-links a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+.footer-links {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px 24px;
+}
+
+.footer-link:hover {
+  color: #fff;
+}
+
+.footer-language select {
+  background: transparent;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 4px;
+  padding: 10px 34px 10px 12px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.footer-language option {
+  color: #000;
+}
+
+.footer-country {
+  margin-bottom: 28px;
+}
+
+.footer-note {
+  max-width: 520px;
+  line-height: 1.6;
+  font-size: 13px;
+}
+
 @media (max-width: 992px) {
   .reasons-grid {
     grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 768px) {
-  .reasons-section {
-    padding: 40px 20px;
-  }
-
-  .reasons-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .reason-card {
-    min-height: 250px;
   }
 }
 
@@ -274,5 +386,17 @@ body {
   .email-box button {
     width: 100%;
     max-width: 400px;
+  }
+
+  .reasons-section {
+    padding: 40px 20px;
+  }
+
+  .reasons-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .reason-card {
+    min-height: 250px;
   }
 }

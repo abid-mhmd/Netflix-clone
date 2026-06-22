@@ -1,5 +1,4 @@
 import {
-  crearteContext,
   createContext,
   useContext,
   useEffect,
@@ -41,8 +40,11 @@ export const AuthProvider = ({ children }) => {
   //auth checking
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
-      (setCurrentUser(user), setLoading(false));
+      setCurrentUser(user);
+      setLoading(false);
     });
+
+    return unsubscribe;
   }, []);
 
   const value = { currentUser, signup, login, logout };

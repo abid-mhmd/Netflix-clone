@@ -1,13 +1,16 @@
 import { Link } from "react-router-dom";
+import logo from  "../../assets/images/logo.svg"
 
 function Navbar(){
     return (
         <nav className="navbar">
-            <h1 className="logo">Netflix</h1>
+            <img src={logo} className="logo" alt="Netflix Logo" />
 
             <div className="nav-right">
-                <button className="language-btn">English</button>
-
+                <select className="language-btn">
+                    <option value="">Engilsh</option>
+                    <option value="">Hindi</option>
+                </select>
                 <Link to="/login">
                 <button className="signin-btn">
                     Sign In

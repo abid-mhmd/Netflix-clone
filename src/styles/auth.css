@@ -1,0 +1,250 @@
+.auth-page {
+  min-height: 100vh;
+  background:
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.8) 100%),
+    url("../assets/images/Netflix\ Indian\ Movies\ and\ Web\ Series.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.logo {
+    position: absolute;
+    top: 24px;
+    left: 5%;
+} 
+
+.auth-content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px 0 80px 0;
+  position: relative;
+  z-index: 2;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 450px;
+  background: black;
+  padding: 30px 40px;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.auth-card h1 {
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 28px;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+.auth-input {
+  width: 100%;
+  height: 50px;
+  padding: 16px;
+  border: 0.5px solid rgba(137, 118, 118, 0.25);
+  border-radius: 4px;
+  background: rgba(45, 45, 45, 0.7);
+  color: #fff;
+  box-sizing: border-box;
+}
+
+.auth-input:focus {
+  border-color: #fff;
+  background: rgba(45, 45, 45, 0.9);
+}
+
+.input-container.has-error .auth-input {
+  border-color: #eb3942;
+}
+
+.error-text {
+  color: #eb3942;
+  font-size: 0.8rem;
+  margin-top: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.auth-btn {
+  background: #e50914;
+  color: #fff;
+  border: none;
+  height: 48px;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 24px;
+  margin-bottom: 12px;
+  transition: background-color 0.2s;
+}
+
+.auth-btn:hover {
+  background: #c11119;
+}
+
+.form-help {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  color: #b3b3b3;
+  font-size: 0.9rem;
+  margin-bottom: 16px;
+}
+
+.form-help input[type="checkbox"] {
+  accent-color: #737373;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.switch-page {
+  color: #737373;
+  font-size: 1rem;
+  margin-top: 12px;
+}
+
+.switch-page a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.switch-page a:hover {
+  text-decoration: underline;
+}
+
+.recaptcha-text {
+  margin-top: 16px;
+  font-size: 0.8rem;
+  color: #8c8c8c;
+  line-height: 1.4;
+}
+
+.recaptcha-text a {
+  color: #0071eb;
+  text-decoration: none;
+}
+
+.auth-footer {
+  background: rgba(0, 0, 0, 0.85);
+  padding: 60px 0 40px 0;
+  color: rgba(255, 255, 255, 0.4);
+  z-index: 2;
+  font-family: Arial, sans-serif;
+}
+
+.footer-container {
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.footer-title {
+  margin-bottom: 30px;
+  font-size: 1rem;
+}
+
+.footer-links {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px 24px;
+  margin-bottom: 35px;
+}
+
+.footer-links a {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.85rem;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.language-select-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.language-select {
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  padding: 8px 32px 8px 12px;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+.remember {
+  color: #b3b3b3;
+  font-size: 1rem;
+}
+
+.remember label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.auth-switch {
+  margin-top: 25px;
+  color: #b3b3b3;
+  font-size: 1rem;
+}
+
+.auth-switch a {
+  color: white;
+  margin-left: 5px;
+  font-weight: 600;
+  text-decoration: none;
+}
+.captcha-text {
+  margin-top: 25px;
+  color: #8c8c8c;
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+.captcha-text a {
+  color: #0071eb;
+  text-decoration: none;
+}
+
+@media (max-width: 740px) {
+  .netflix-logo {
+    font-size: 2.5rem;
+    left: 20px;
+    top: 16px;
+  }
+  .auth-card {
+    max-width: 100%;
+    padding: 60px 24px;
+    background: #000;
+  }
+  .auth-page {
+    background: #000;
+  }
+  .footer-links {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
