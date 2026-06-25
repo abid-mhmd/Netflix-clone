@@ -39,9 +39,9 @@ export function validateLogin({ emailOrPhone, password }) {
   const error = {};
 
   if (!emailOrPhone.trim()) {
-    error.emailOrPhone = "Email is required";
+    error.emailOrPhone = "  Email is required";
   }
-
+ 
   if (!password.trim()) {
     error.password = "Password required";
   }

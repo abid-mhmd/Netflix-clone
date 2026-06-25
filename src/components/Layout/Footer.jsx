@@ -1,8 +1,8 @@
 import { footerLinks } from "../../utils/footerlinks";
 
-function Footer() {
+function Footer({fullwidth=false}) {
   return (
-    <footer className="footer">
+    <footer className={`text-gray-400 text-sm ${fullwidth?"w-full !px-14 !py-14":"footer"}`}>
       <p className="footer-contact">
         Questions? Call <a href="tel:0008009191743">000-800-919-1743</a>
       </p>
