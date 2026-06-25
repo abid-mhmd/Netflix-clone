@@ -4,9 +4,8 @@ import Landing from "./pages/landing";
 import Login from "./pages/login";
 import Signup from "./pages/Signup";
 import Home from "./pages/Home";
-import Watch from "./pages/Watch";
-import Watchlist from "./pages/Watchlist";
 import ProtectedRoute from "./components/common/ProtectedRoute";
+import Watchlist from "./components/Movie/Wacthlist";
 
 function App() {
   return (

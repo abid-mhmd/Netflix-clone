@@ -7,11 +7,31 @@ import {
   getRandomTrendingMovie,
   getTrendingIndiaMovies,
 } from "../../services/movieService";
+import WatchModal from "../Movie/WatchModal";
+import { getMovieTrailer } from "../../services/movieService";
+import TrailerUnavailableModal from "../Movie/TrailerUnavailableModal";
 
 function HeroBanner({ onMovieClick }) {
   const { moviesByCategory } = useMovies();
   const [heroMovie, setHeroMovie] = useState(null);
+  const [showPlayer,setShowPlayer]=useState(false);
+  const [trailerUrl,setTrailerUrl]=useState(null);
+  const [showUnavailable,setShowUnavailable]=useState(null)
   const navigate = useNavigate();
+
+  async function handlePlay() {
+    try{
+      const trailer=await getMovieTrailer(heroMovie.id);
+      if(!trailer){
+        setShowUnavailable(true);
+        return;
+      }
+      setTrailerUrl(trailer);
+      setShowPlayer(true)
+    }catch(err){
+      console.log(err);
+    }
+  }
 
   useEffect(() => {
     async function loadHeroMoavie() {
@@ -56,19 +76,25 @@ function HeroBanner({ onMovieClick }) {
           {heroMovie.overview}
         </p>
         <div className="flex items-center gap-4 select-none">
-          <button
-            onClick={() => onMovieClick(heroMovie)}
-            className="flex items-center justify-center gap-3 bg-white text-black !px-6 md:px-10 !py-2 md:py-4 rounded-md text-base md:text-lg font-bold tracking-wide transition duration-200 ease-in-out hover:bg-white/80 active:scale-95 shadow-lg"
-          >
+          <button onClick={handlePlay} className="flex items-center justify-center gap-3 bg-white text-black !px-6 md:px-10 !py-2 md:py-4 rounded-md text-base md:text-lg font-bold tracking-wide transition duration-200 ease-in-out hover:bg-white/80 active:scale-95 shadow-lg">
             <FaPlay className="text-sm md:text-base text-blue-500" />
             Play
           </button>
-          <button className="flex items-center justify-center gap-3 bg-[#3f444e] text-white !px-6 md:px-10 !py-2 md:py-4 rounded-md text-base md:text-lg font-bold tracking-wide backdrop-blur-md transition duration-200 ease-in-out hover:bg-[#4a505c] active:scale-95 shadow-lg">
+          <button
+            onClick={() => onMovieClick(heroMovie)}
+            className="flex items-center justify-center gap-3 bg-[#3f444e] text-white !px-6 md:px-10 !py-2 md:py-4 rounded-md text-base md:text-lg font-bold tracking-wide backdrop-blur-md transition duration-200 ease-in-out hover:bg-[#4a505c] active:scale-95 shadow-lg"
+          >
             <AiOutlineInfoCircle className="text-xl md:text-2xl" />
             More Info
           </button>
         </div>
       </div>
+      {showPlayer&&(
+        <WatchModal trailerUrl={trailerUrl} movie={heroMovie} onClose={()=>setShowPlayer(false)}/>
+      )}
+      {showUnavailable&&(
+        <TrailerUnavailableModal onClose={()=>setShowUnavailable(false)}/>
+      )}
     </section>
   );
 }

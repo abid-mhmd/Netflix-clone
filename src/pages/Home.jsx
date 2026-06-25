@@ -4,12 +4,13 @@ import { useMovies } from "../context/MovieContext";
 import ProtectedNavbar from "../components/common/ProtectedNavbar";
 import Footer from "../components/Layout/Footer";
 import { useState } from "react";
-// import MovieDetailsModal from "./MovieDetails";
 import MovieDetailsModal from "../components/Movie/MovieDetailsModal";
+import Watchlist from "../components/Movie/Wacthlist";
 
 function Home() {
   const { moviesByCategory, loading } = useMovies();
   const [selectedMovie,setSelectedMovie]=useState(null);
+  const [showWatchlist,setShowWatchlist]=useState(false);
   if (loading) {
     return (
       <div className="min-h-screen bg-black flex items-center justify-center">
@@ -19,7 +20,7 @@ function Home() {
   }
   return (
     <main className="bg-black min-h-screen">
-      <ProtectedNavbar />
+      <ProtectedNavbar onOpenWatchlist={()=>setShowWatchlist(true)} />
 
       <HeroBanner onMovieClick={setSelectedMovie} />
 
@@ -30,6 +31,10 @@ function Home() {
       </section>
       {selectedMovie&&(
         <MovieDetailsModal movie={selectedMovie} onClose={()=>setSelectedMovie(null)}/>
+      )}
+      {showWatchlist&&(
+        <Watchlist onClose={()=>setShowWatchlist(false)}
+        onMovieClick={setSelectedMovie}/>
       )}
         <Footer fullwidth/>
     </main>

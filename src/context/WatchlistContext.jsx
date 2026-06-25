@@ -18,7 +18,7 @@ export const WatchlistProvider=({children})=>{
     }
 
     return (
-        <WatchlistContext.Provider value={watchlist,addToWatchlist,removeFromWatchlist}>
+        <WatchlistContext.Provider value={{watchlist,addToWatchlist,removeFromWatchlist}}>
             {children}
         </WatchlistContext.Provider>
     )

@@ -3,7 +3,7 @@ import { IoSearchOutline, IoNotificationsOutline } from "react-icons/io5";
 import { useAuth } from "../../context/AuthContext";
 import logo from "../../assets/images/logo.svg";
 
-function ProtectedNavbar() {
+function ProtectedNavbar({onOpenWatchlist}) {
   const { currentUser, logout } = useAuth();
 
   async function handleLogout() {
@@ -15,7 +15,7 @@ function ProtectedNavbar() {
   }
 
   return (
-    <header className="fixed top-0 left-10 right-10 z-50 bg-gradient-to-b from-black/65 via-black/30 to-transparent select-none">
+    <header className="fixed top-0 left-10 right-10 z-40 bg-gradient-to-b from-black/65 via-black/30 to-transparent select-none">
       <div className="mx-auto flex h-[68px] items-center justify-between">
         <div className="flex items-center gap-[45px]">
           <Link to="/home" className="flex items-center">
@@ -65,12 +65,12 @@ function ProtectedNavbar() {
             >
               Browse by Languages
             </NavLink>
-            <NavLink
-              to="/watchlist"
+            <button
+              onClick={onOpenWatchlist}
               className="hover:text-[#b3b3b3] transition duration-150"
             >
               My List
-            </NavLink>
+            </button>
           </nav>
         </div>
         <div className="flex items-center gap-6 text-white">
