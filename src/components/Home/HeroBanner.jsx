@@ -10,6 +10,7 @@ import {
 import WatchModal from "../Movie/WatchModal";
 import { getMovieTrailer } from "../../services/movieService";
 import TrailerUnavailableModal from "../Movie/TrailerUnavailableModal";
+import Loader from "../common/Loader";
 
 function HeroBanner({ onMovieClick }) {
   const { moviesByCategory } = useMovies();
@@ -47,7 +48,7 @@ function HeroBanner({ onMovieClick }) {
   }, []);
 
   if (!heroMovie) {
-    return null;
+    return <Loader/>
   }
 
   return (

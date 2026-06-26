@@ -12,10 +12,10 @@
 }
 
 .logo {
-    position: absolute;
-    top: 24px;
-    left: 5%;
-} 
+  position: absolute;
+  top: 24px;
+  left: 5%;
+}
 
 .auth-content {
   flex: 1;

@@ -7,6 +7,7 @@ import RelatedCard from "./RelatedMovieCard";
 import WatchModal from "./WatchModal";
 import TrailerUnavailableModal from "./TrailerUnavailableModal";
 import ProtectedNavbar from "../common/ProtectedNavbar";
+import Loader from "../common/Loader";
 
 function MovieDetailsModal({ movie, onClose }) {
   const [activeMovie, setActiveMovie] = useState(movie);
@@ -141,11 +142,7 @@ function MovieDetailsModal({ movie, onClose }) {
             </h2>
 
             {loading ? (
-              <div className="flex justify-center !py-10">
-                <p className="text-zinc-400 text-sm animate-pulse">
-                  Loading related content grid...
-                </p>
-              </div>
+              <Loader/>
             ) : (
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
                 {relatedMovies.slice(0, 6).map((relatedMovie) => (

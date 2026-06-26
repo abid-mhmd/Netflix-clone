@@ -17,11 +17,13 @@ export const MovieProvider = ({ children }) => {
       try {
         const movieData = {};
         for (const category of categories) {
-            const response=await tmdb.get(category.endpoint);
-          let movies = response.data.results.filter((movie)=>movie.poster_path);
-          
+          const response = await tmdb.get(category.endpoint);
+          let movies = response.data.results.filter(
+            (movie) => movie.poster_path,
+          );
+
           if (category.title === "Trending India") {
-            movies=await getTrendingIndiaMovies();
+            movies = await getTrendingIndiaMovies();
           }
           movieData[category.title] = movies;
         }

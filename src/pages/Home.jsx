@@ -6,37 +6,44 @@ import Footer from "../components/Layout/Footer";
 import { useState } from "react";
 import MovieDetailsModal from "../components/Movie/MovieDetailsModal";
 import Watchlist from "../components/Movie/Wacthlist";
+import Loader from "../components/common/Loader";
 
 function Home() {
   const { moviesByCategory, loading } = useMovies();
-  const [selectedMovie,setSelectedMovie]=useState(null);
-  const [showWatchlist,setShowWatchlist]=useState(false);
+  const [selectedMovie, setSelectedMovie] = useState(null);
+  const [showWatchlist, setShowWatchlist] = useState(false);
   if (loading) {
-    return (
-      <div className="min-h-screen bg-black flex items-center justify-center">
-        <h1 className="text-white text-2xl">Loading...</h1>
-      </div>
-    );
+    return <Loader />;
   }
   return (
     <main className="bg-black min-h-screen">
-      <ProtectedNavbar onOpenWatchlist={()=>setShowWatchlist(true)} />
+      <ProtectedNavbar onOpenWatchlist={() => setShowWatchlist(true)} />
 
       <HeroBanner onMovieClick={setSelectedMovie} />
 
       <section className="relative z-10 -mt-32">
         {Object.entries(moviesByCategory).map(([title, movies]) => (
-          <MovieRow key={title} title={title} movies={movies} onMovieClick={setSelectedMovie} />
+          <MovieRow
+            key={title}
+            title={title}
+            movies={movies}
+            onMovieClick={setSelectedMovie}
+          />
         ))}
       </section>
-      {selectedMovie&&(
-        <MovieDetailsModal movie={selectedMovie} onClose={()=>setSelectedMovie(null)}/>
+      {selectedMovie && (
+        <MovieDetailsModal
+          movie={selectedMovie}
+          onClose={() => setSelectedMovie(null)}
+        />
       )}
-      {showWatchlist&&(
-        <Watchlist onClose={()=>setShowWatchlist(false)}
-        onMovieClick={setSelectedMovie}/>
+      {showWatchlist && (
+        <Watchlist
+          onClose={() => setShowWatchlist(false)}
+          onMovieClick={setSelectedMovie}
+        />
       )}
-        <Footer fullwidth/>
+      <Footer fullwidth />
     </main>
   );
 }

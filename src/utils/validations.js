@@ -17,9 +17,9 @@ export function validateSignup(formData) {
   }
   const isPhone = phoneRegex.test(emailOrPhone);
 
- if (emailOrPhone && !isEmail && !isPhone) {
-  error.emailOrPhone = "Enter valid email or phone";
-}
+  if (emailOrPhone && !isEmail && !isPhone) {
+    error.emailOrPhone = "Enter valid email or phone";
+  }
 
   if (!password.trim()) {
     error.password = "Password is required";
@@ -41,7 +41,7 @@ export function validateLogin({ emailOrPhone, password }) {
   if (!emailOrPhone.trim()) {
     error.emailOrPhone = "  Email is required";
   }
- 
+
   if (!password.trim()) {
     error.password = "Password required";
   }

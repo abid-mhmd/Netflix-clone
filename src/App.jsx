@@ -1,7 +1,7 @@
-import "./styles/landing.css"
+import "./styles/landing.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Landing from "./pages/landing";
-import Login from "./pages/login";
+import Landing from "./pages/Landing";
+import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Home from "./pages/Home";
 import ProtectedRoute from "./components/common/ProtectedRoute";

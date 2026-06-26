@@ -1,4 +1,4 @@
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, useNavigate } from "react-router-dom";
 import { IoSearchOutline, IoNotificationsOutline } from "react-icons/io5";
 import { useAuth } from "../../context/AuthContext";
 import logo from "../../assets/images/logo.svg";
@@ -6,9 +6,11 @@ import logo from "../../assets/images/logo.svg";
 function ProtectedNavbar({onOpenWatchlist}) {
   const { currentUser, logout } = useAuth();
 
+  const navigate=useNavigate()
   async function handleLogout() {
     try {
       await logout();
+      navigate("/login")
     } catch (error) {
       console.log(error);
     }

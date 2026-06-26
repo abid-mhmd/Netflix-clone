@@ -1,14 +1,17 @@
-import { X, Trash2, Play, Info } from "lucide-react";
+import { X, Trash2, Play, Info, Loader } from "lucide-react";
 import { useWatchlist } from "../../context/WatchlistContext";
+import { useState } from "react";
 
 function Watchlist({ onClose, onMovieClick }) {
   const { watchlist, removeFromWatchlist } = useWatchlist();
+  const [loading,setLoading]=useState(null);
 
   return (
     <div
       className="fixed inset-0 z-[60] bg-black/80 backdrop-blur-sm flex justify-center items-center !p-6"
       onClick={onClose}
     >
+      <Loader/>
       <div
         className="bg-[#141414] w-full max-w-7xl h-[90vh] rounded-xl overflow-hidden shadow-2xl flex flex-col"
         onClick={(e) => e.stopPropagation()}

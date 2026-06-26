@@ -16,7 +16,7 @@ function MovieCard({ movie, onClick }) {
           alt={movie.title || movie.name}
           className="w-full h-full object-cover rounded-lg"
         />
-        <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4 rounded-lg">
+        <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end !p-4 rounded-lg">
           <p className="text-white text-sm font-semibold truncate w-full">
             {movie.title || movie.name}
           </p>

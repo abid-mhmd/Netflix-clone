@@ -13,5 +13,5 @@ export const footerLinks = [
   "Only On Netflix",
   "Media Centre",
   "Terms Of Use",
-  "Contact Us"
+  "Contact Us",
 ];
